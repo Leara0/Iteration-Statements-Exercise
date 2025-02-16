@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Owajx2GxMHTI/vMU92uTfZKYltOjw6GdVsSMuk7MdFzvpzZgHUZuE88G97bow19PXkOf2clTg+XYMbhE9XVm0g==",
+  "dgSpecHash": "pmugpRMzP18=",
   "success": true,
-  "projectFilePath": "\\\\vmware-host\\Shared Folders\\Desktop\\repos\\csharp-31\\Iteration-Statements-Exercise\\IterationStatements\\IterationStatements.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Sehers\\Desktop\\repos\\Iteration-Statements-Exercise\\IterationStatements\\IterationStatements.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sehers\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\Sehers\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\Sehers\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\Sehers\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.36\\microsoft.netcore.app.host.win-x64.6.0.36.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,45 +1,106 @@
-﻿namespace IterationStatements
+﻿using System.ComponentModel;
+
+namespace IterationStatements
 {
     public class Program
     {
-        // LukeWarm Section: Implement the following methods        
-        // 1. Write a method that prints all numbers from 1000 down to -1000 to the console.
-        //    - Method Signature: void PrintNumbers()
-        
-        // 2. Write a method that prints every third number from 3 to 999 to the console.
-        //    - Method Signature: void PrintEveryThirdNumber()
-        
-        // 3. Write a method that accepts two integers as parameters and checks whether they are equal.
-        //    - Method Signature: bool AreNumbersEqual(int num1, int num2)
-        //    - Returns true if the numbers are equal, false otherwise.
-        
-        // 4. Write a method that checks if a given number is even or odd.
-        //    - Method Signature: bool IsEven(int number)
-        //    - Returns true if the number is even, false if odd.
-        
-        // 5. Write a method that checks if a given number is positive or negative.
-        //    - Method Signature: bool IsPositive(int number)
-        //    - Returns true if the number is positive, false if negative.
-        
-        // 6. Write a method that reads the age of a candidate and determines if they are eligible to vote.
-        //    - Method Signature: bool CanVote(int age)
-        //    - Returns true if the candidate can vote, false otherwise.
-        //    - Hint: Use `int.Parse()` or the safer `int.TryParse()` for extra practice in handling user input.
-        
-        // Heatin' Up Section:
-        // 1. Write a method that checks if an integer (provided by the user) is within the range of -10 to 10.
-        //    - Method Signature: bool IsInRange(int number)
-        //    - Returns true if the number is within the range, false otherwise.
-        
-        // 2. Write a method that displays the multiplication table (from 1 to 12) for a given integer.
-        //    - Method Signature: void DisplayMultiplicationTable(int number)
-        //    - Should print each line in the format: "1 * number = result"
-
-        // In the Main method below, call each of your methods to test them.
-        // Use various test cases to ensure they work as expected.        
         static void Main(string[] args)
         {
-            
+            Console.Clear();
+            Console.WriteLine("Please enter your age");
+            var num1 = GetNumber();
+            Console.WriteLine("Please enter your favorite number");
+            var num2 = GetNumber();
+
+
+            int GetNumber()
+            {
+                var num = 0;
+                var validInput = false;
+                do
+                {
+                    validInput = int.TryParse(Console.ReadLine(), out num);
+                    if (!validInput)
+                        Console.WriteLine("Please enter a valid number");
+                } while (!validInput);
+
+                return num;
+            }
+
+            Console.WriteLine("\nHere's a lot of numbers coming at you!");
+            PrintNumbers();
+
+            Console.WriteLine("\n\nHere's more numbers. I shortened it by counting by 3s,");
+            PrintEveryThirdNumber();
+
+            Console.WriteLine($"\nYour 2 numbers are {(AreNumbersEqual(num1, num2) ? "equal" : "not equal")}");
+            bool even = IsEven(num1);
+            Console.WriteLine($"Your age is {(even ? "even" : "odd")}");
+            Console.WriteLine($"Your favorite number is {(IsEven(num2) ? "even" : "odd")}");
+
+            Console.WriteLine($"Your favorite number is {(IsPositive(num2) ? "" : "not")} positive.");
+            Console.WriteLine($"Your are {(CanVote(num1) ? "" : "not ")}old enough to vote");
+            Console.WriteLine("\nLet's get some variety up in here! Please give me a new number");
+            Console.WriteLine($"Your number is {(IsInRange(GetNumber()) ? "" : "not")} between -10 and 10");
+
+            Console.WriteLine("\nLastly, I'll give you the multiplication table for your old favorite number");
+            DisplayMultiplicationTable(num2);
+
+
+            void PrintNumbers()
+            {
+                for (int i = 1000; i > -1001; i--)
+                    Console.Write($"{i}, ");
+            }
+
+            void PrintEveryThirdNumber()
+            {
+                var num = 3;
+                do
+                {
+                    Console.Write($"{num}, ");
+                    num += 3;
+                } while (num <= 999);
+            }
+
+            bool AreNumbersEqual(int num1, int num2)
+            {
+                return num1 == num2 ? true : false;
+            }
+
+            bool IsEven(int number)
+            {
+                return number % 2 == 0 ? true : false;
+            }
+
+            bool IsPositive(int number)
+            {
+                return number > -1 ? true : false;
+            }
+
+            bool CanVote(int age)
+            {
+                return age > 17 ? true : false;
+            }
+
+            bool IsInRange(int number)
+            {
+                for (int i = -10;
+                     i < 11;
+                     i++) // the ternary would work quicker here but I wanted to force in more loops
+                {
+                    if (i == number)
+                        return true;
+                }
+
+                return false;
+            }
+
+            void DisplayMultiplicationTable(int number)
+            {
+                for (int i = 1; i < 13; i++)
+                    Console.WriteLine($"{i} * {number} = {i * number}");
+            }
         }
     }
 }
