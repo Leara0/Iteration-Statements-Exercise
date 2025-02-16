@@ -12,21 +12,6 @@ namespace IterationStatements
             Console.WriteLine("Please enter your favorite number");
             var num2 = GetNumber();
 
-
-            int GetNumber()
-            {
-                var num = 0;
-                var validInput = false;
-                do
-                {
-                    validInput = int.TryParse(Console.ReadLine(), out num);
-                    if (!validInput)
-                        Console.WriteLine("Please enter a valid number");
-                } while (!validInput);
-
-                return num;
-            }
-
             Console.WriteLine("\nHere's a lot of numbers coming at you!");
             PrintNumbers();
 
@@ -46,7 +31,20 @@ namespace IterationStatements
             Console.WriteLine("\nLastly, I'll give you the multiplication table for your old favorite number");
             DisplayMultiplicationTable(num2);
 
+            int GetNumber()
+            {
+                var num = 0;
+                var validInput = false;
+                do
+                {
+                    validInput = int.TryParse(Console.ReadLine(), out num);
+                    if (!validInput)
+                        Console.WriteLine("Please enter a valid number");
+                } while (!validInput);
 
+                return num;
+            }
+            
             void PrintNumbers()
             {
                 for (int i = 1000; i > -1001; i--)
